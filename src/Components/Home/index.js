@@ -3,9 +3,8 @@ import NavigationBar from "../Header/Navigationbar";
 import { connectWallet } from "../../Model/Wallet/ConnectDisconnectWallet";
 import { getAccount } from "../../Model/Wallet/getWalletAddress";
 import { sendTransection } from "../../Model/Wallet/sendTransection";
-import { Buffer } from 'buffer';
+import { Buffer } from "buffer";
 import { getBalance } from "../../Model/Wallet/checkBalance";
-
 
 let accounts = [];
 const Home = () => {
