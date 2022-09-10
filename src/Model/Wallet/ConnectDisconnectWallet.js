@@ -1,5 +1,10 @@
+
+import { Buffer } from 'buffer';
+
+
 export const connectWallet = () => {
   try {
+    window.Buffer = Buffer;
     if (typeof window.ethereum !== "undefined") {
       console.log("MetaMask is installed!");
 

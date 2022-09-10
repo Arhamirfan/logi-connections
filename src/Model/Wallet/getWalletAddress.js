@@ -1,5 +1,8 @@
+import { Buffer } from 'buffer';
+
 export const getAccount = async (setWalletaddress) => {
   try {
+    window.Buffer = Buffer;
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
