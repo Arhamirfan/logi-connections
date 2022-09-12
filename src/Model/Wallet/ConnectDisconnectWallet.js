@@ -1,18 +1,24 @@
+import { Buffer } from "buffer";
 
-import { Buffer } from 'buffer';
-
-
-export const connectWallet = () => {
+export const connectWallet = async () => {
   try {
     window.Buffer = Buffer;
     if (typeof window.ethereum !== "undefined") {
       console.log("MetaMask is installed!");
 
-      const requesting = window.ethereum.request({
+      const requesting = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       if (requesting) {
-        //console.log(requesting);
+        //console.log(window.ethereum);
+        // window.ethereum.on("accountsChanged", (accounts) => {
+        //   console.log(
+        //     "🚀 ~ file: ConnectDisconnectWallet.js ~ line 15 ~ connectWal ~ accounts",
+        //     accounts
+        //   );
+        // });
+        console.log(requesting);
+        return requesting[0];
       } else {
         console.log("not requesting");
       }

@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
-import { aboutpath, homepath } from "./Constants/paths";
+import RoutePaths from "./Constants/paths";
 function App() {
   return (
     <>
       <Routes>
-        <Route path={homepath} element={<Home />} />
-        <Route path={aboutpath} element={<About />} />
+        <Route path={RoutePaths.home} element={<Home />} />
+        <Route path={RoutePaths.about} element={<About />} />
       </Routes>
     </>
   );

@@ -21,8 +21,17 @@ export const sendTransection = () => {
             },
           ],
         })
-        .then((txHash) => console.log(txHash))
-        .catch((error) => console.error);
+        .then((txHash) => {
+          console.log("successfully send. generating transaction address");
+          return txHash;
+        })
+        .catch((error) => {
+          console.log(
+            "🚀 ~ file: sendTransection.js ~ line 32 ~ getAccount ~ error",
+            error
+          );
+          return error;
+        });
     });
   } catch (error) {
     console.log("🚀 ~ file: index.js ~ line 13 ~ connect ~ error", error);

@@ -1,7 +1,7 @@
 import React from "react";
-import { aboutpath, homepath } from "../../Constants/paths";
+import RoutePaths from "../../Constants/paths";
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,17 +26,18 @@ const NavigationBar = () => {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href={homepath}
+                  href={RoutePaths.home}
                 >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href={aboutpath}>
+                <a className="nav-link" href={RoutePaths.about}>
                   About
                 </a>
               </li>
             </ul>
+            {props.address}
             <button className="btn btn-primary">Connect Wallet</button>
             {/* <span className="navbar-text">Connect Wallet</span> */}
           </div>

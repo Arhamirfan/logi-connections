@@ -5,6 +5,8 @@ import { getAccount } from "../../Model/Wallet/getWalletAddress";
 import { sendTransection } from "../../Model/Wallet/sendTransection";
 import { Buffer } from "buffer";
 import { getBalance } from "../../Model/Wallet/checkBalance";
+import { useDispatch, useSelector } from "react-redux";
+import { balance, connectwallet } from "../../Model/Store/Actions";
 
 let accounts = [];
 const Home = () => {
@@ -15,19 +17,19 @@ const Home = () => {
   //     return balance;
   //   };
 
-  function connect() {
-    window.Buffer = Buffer;
-    connectWallet();
-    try {
-      getAccount().then((res) => {
-        setWalletaddress(res);
+  const myState = useSelector((state) => state.wallet);
+  const dispatch = useDispatch();
 
-        // getBalance().then((res) => setBalance(res));
-      });
-    } catch (error) {
-      console.log("🚀 ~ file: index.js ~ line 13 ~ connect ~ error", error);
-    }
-  }
+  let connect = async () => {
+    window.Buffer = Buffer;
+    //let connectedMetaMaskWalletAddress = await connectWallet();
+    let connectedWAlletAddress = await dispatch(connectWallet());
+    console.log(
+      "🚀 ~ file: index.js ~ line 21 ~ connect ~ connectedMetaMaskWalletAddress",
+      connectedWAlletAddress
+    );
+    setWalletaddress(connectedWAlletAddress);
+  };
 
   function sendeth() {
     window.Buffer = Buffer;
@@ -35,12 +37,13 @@ const Home = () => {
   }
 
   function getbalance() {
-    getBalance();
+    //getBalance();
+    dispatch(balance());
   }
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar address={walletaddress} />
       <div className="container" style={{ marginTop: "50px" }}>
         <h2>Home</h2>
         <button
