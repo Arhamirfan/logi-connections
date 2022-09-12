@@ -1,7 +1,8 @@
 import React from "react";
 import RoutePaths from "../../Constants/paths";
-
+import { useSelector, useDispatch } from "react-redux";
 const NavigationBar = (props) => {
+  const wallet = useSelector((data) => data.wallet);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,7 +38,7 @@ const NavigationBar = (props) => {
                 </a>
               </li>
             </ul>
-            {props.address}
+            {wallet}
             <button className="btn btn-primary">Connect Wallet</button>
             {/* <span className="navbar-text">Connect Wallet</span> */}
           </div>

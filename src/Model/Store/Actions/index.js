@@ -1,6 +1,7 @@
-export const connectwallet = () => {
+export const connectwallet = (address) => {
   return {
     type: "CONNECT",
+    payload: address,
   };
 };
 

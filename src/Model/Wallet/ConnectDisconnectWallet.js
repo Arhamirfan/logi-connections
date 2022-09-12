@@ -1,5 +1,7 @@
 import { Buffer } from "buffer";
-
+import { connectwallet } from "../Store/Actions/index";
+import { useSelector, useDispatch } from "react-redux";
+import store from "../Store";
 export const connectWallet = async () => {
   try {
     window.Buffer = Buffer;
@@ -18,6 +20,8 @@ export const connectWallet = async () => {
         //   );
         // });
         console.log(requesting);
+        store.dispatch(connectwallet(requesting[0]));
+
         return requesting[0];
       } else {
         console.log("not requesting");

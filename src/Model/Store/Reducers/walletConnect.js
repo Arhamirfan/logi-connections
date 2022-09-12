@@ -1,16 +1,12 @@
 import { getBalance } from "../../Wallet/checkBalance";
 import { connectWallet } from "../../Wallet/ConnectDisconnectWallet";
 
-const initialAddress = "";
+const initialAddress = "1213213";
 
 const wallet = (state = initialAddress, action) => {
   switch (action.type) {
     case "CONNECT":
-      state = connectWallet();
-      return state;
-    case "CHECKBALANCE":
-      state = getBalance();
-      return state;
+      return action.payload;
 
     default:
       return state;
