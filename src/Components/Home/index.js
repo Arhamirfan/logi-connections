@@ -38,7 +38,7 @@ const Home = () => {
 
   function getbalance() {
     //getBalance();
-    dispatch(balance());
+    //dispatch(balance());
   }
 
   return (
